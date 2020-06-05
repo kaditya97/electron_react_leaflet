@@ -1,0 +1,71 @@
+{
+  "name": "leaflet_webgis",
+  "description": "React + Electron with leaft sitting in a tree",
+  "author": "Aditya Kushwaha",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "cross-env": "6.0.2",
+    "electron-is-dev": "1.1.0",
+    "electron-log": "^3.0.8",
+    "leaflet": "^1.6.0",
+    "leaflet-draw": "^1.0.4",
+    "leaflet-geosearch": "^3.0.6",
+    "leaflet.browser.print": "^1.0.5",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "styled-components": "^5.1.1",
+    "update": "^0.7.4",
+    "update-electron-app": "^1.2.0"
+  },
+  "devDependencies": {
+    "concurrently": "4.1.2",
+    "electron": "^6.0.11",
+    "electron-builder": "^21.2.0",
+    "prettier": "^1.4.4",
+    "react-scripts": "^3.4.1",
+    "wait-on": "3.3.0"
+  },
+  "build": {
+    "appId": "leaflet_webgis",
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "src/icon.ico",
+      "requestedExecutionLevel": "requireAdministrator"
+    },
+    "nsis": {
+      "installerIcon": "src/icon.ico",
+      "uninstallerIcon": "src/icon.ico",
+      "uninstallDisplayName": "React+Electron",
+      "license": "license.txt",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "main": "public/electron.js",
+  "homepage": "./",
+  "scripts": {
+    "react-start": "react-scripts start",
+    "react-build": "react-scripts build",
+    "react-test": "react-scripts test --env=jsdom",
+    "react-eject": "react-scripts eject",
+    "electron-build": "electron-builder",
+    "release": "npm run react-build && electron-builder --publish=always",
+    "build": "npm run react-build && npm run electron-build",
+    "start": "concurrently \"cross-env BROWSER=none npm run react-start\" \"wait-on http://localhost:3000 && electron .\""
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
