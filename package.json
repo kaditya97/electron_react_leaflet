@@ -23,7 +23,7 @@
     "electron": "^6.0.11",
     "electron-builder": "^21.2.0",
     "prettier": "^1.4.4",
-    "react-scripts": "^3.4.1",
+    "react-scripts": "^5.0.1",
     "wait-on": "3.3.0"
   },
   "build": {
